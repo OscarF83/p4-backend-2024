@@ -9,3 +9,31 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model technicians {
+  techId        Int             @id @default(autoincrement())
+  firstName     String
+  lastName      String
+  hoursRegister hoursRegister[]
+}
+model laboratories {
+  labId         Int             @id @default(autoincrement())
+  labName       String          @unique
+  hoursRegister hoursRegister[]
+}
+model projects {
+  projectId     Int             @id @default(autoincrement())
+  projectName   String          @unique
+  hoursRegister hoursRegister[]
+}
+model hoursRegister {
+  hoursRegisterId Int          @id @default(autoincrement())
+  day             String
+  hours           Int
+  techId          Int
+  labId           Int
+  projectId       Int
+  technicians     technicians  @relation(fields: [techId], references: [techId], onDelete: NoAction, onUpdate: NoAction)
+  laboratories    laboratories @relation(fields: [labId], references: [labId], onDelete: NoAction, onUpdate: NoAction)
+  projects        projects     @relation(fields: [projectId], references: [projectId], onDelete: NoAction, onUpdate: NoAction)
+}
