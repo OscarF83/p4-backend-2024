@@ -2,6 +2,16 @@ import { PrismaClient } from "@prisma/client";
 
 const db = new PrismaClient();
 
+/*const labNames2 = ["lab1", "lab2", "lab3"];
+
+labNames2.forEach(async (value)=>{
+    const laboratory1 = await db.laboratories.create({
+        data: {
+          labName: value,
+        },
+      });
+})*/
+
 try {
 
 const laboratory1 = await db.laboratories.create({
@@ -9,42 +19,42 @@ const laboratory1 = await db.laboratories.create({
       labName: "EmcChamberLab",
     },
   });
-console.log(`Created laboratory "${laboratory1}" with id "${laboratory1.labId}"`);
+console.log(`Created laboratory "${laboratory1.labName}" with id "${laboratory1.labId}"`);
 
 const laboratory2 = await db.laboratories.create({
     data: {
       labName: "SoftwareControlLab",
     },
   });
-console.log(`Created laboratory "${laboratory2}" with id "${laboratory2.labId}"`);
+console.log(`Created laboratory "${laboratory2.labName}" with id "${laboratory2.labId}"`);
 
 const laboratory3 = await db.laboratories.create({
     data: {
       labName: "Calorimeter",
     },
   });
-console.log(`Created laboratory "${laboratory3}" with id "${laboratory3.labId}"`);
+console.log(`Created laboratory "${laboratory3.labName}" with id "${laboratory3.labId}"`);
 
 const project1 = await db.projects.create({
     data: {
       projectName: "IU_Yutaki",
     },
   });
-console.log(`Created project "${project1}" with id "${project1.projectId}"`);
+console.log(`Created project "${project1.projectName}" with id "${project1.projectId}"`);
 
 const project2 = await db.projects.create({
     data: {
       projectName: "ODU_R290",
     },
   });
-console.log(`Created project "${project2}" with id "${project2.projectId}"`);
+console.log(`Created project "${project2.projectName}" with id "${project2.projectId}"`);
 
 const project3 = await db.projects.create({
     data: {
       projectName: "ODU_R32",
     },
   });
-console.log(`Created project "${project3}" with id "${project3.projectId}"`);
+console.log(`Created project "${project3.projectName}" with id "${project3.projectId}"`);
 
 const technician1 = await db.technicians.create({
   data: {
@@ -52,7 +62,7 @@ const technician1 = await db.technicians.create({
     lastName: "Alcaraz",
   },
 });
-console.log(`Created technician "${technician1}" with id "${technician1.techId}"`);
+console.log(`Created technician "${technician1.firstName} ${technician1.lastName}" with id "${technician1.techId}"`);
 
 const technician2 = await db.technicians.create({
   data: {
@@ -60,7 +70,7 @@ const technician2 = await db.technicians.create({
     lastName: "Monte",
   },
 });
-console.log(`Created technician "${technician2}" with id "${technician2.techId}"`);
+console.log(`Created technician "${technician2.firstName} ${technician2.lastName}" with id "${technician2.techId}"`);
 
 const technician3 = await db.technicians.create({
   data: {
@@ -68,7 +78,7 @@ const technician3 = await db.technicians.create({
     lastName: "Molina",
   },
 });
-console.log(`Created technician "${technician3}" with id "${technician3.techId}"`);
+console.log(`Created technician "${technician3.firstName} ${technician3.lastName}" with id "${technician3.techId}"`);
 
 const technician4 = await db.technicians.create({
   data: {
@@ -76,7 +86,7 @@ const technician4 = await db.technicians.create({
     lastName: "Gonzalez",
   },
 });
-console.log(`Created technician "${technician4}" with id "${technician4.techId}"`);
+console.log(`Created technician "${technician4.firstName} ${technician4.lastName}" with id "${technician4.techId}"`);
 
 const register1 = await db.hoursRegister.create({
     data: {
