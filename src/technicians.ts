@@ -1,5 +1,6 @@
 import { db } from "./db";
 import { Router } from "express";
+import { send } from "./response";
 
 const router = Router();
 
@@ -8,9 +9,9 @@ router.get("/", async (req, res) => {
     const technicians = await db.technicians.findMany({
       orderBy: { firstName: "asc" },
     });
-    res.status(200).json(technicians);
+    send(res).ok(technicians);
   } catch (e) {
-    res.status(500).json({ error: "Internal Error" });
+    send(res).internalError(`Could not get technicians`);
   }
 });
 
@@ -19,14 +20,10 @@ router.post("/", async (req, res) => {
     const { firstName } = req.body;
     const { lastName } = req.body;
     if (firstName === undefined || typeof firstName !== "string") {
-      return res
-        .status(400)
-        .json({ error: "Missing `firstName` field or incorrect data type" });
+        return send(res).badRequest(`Missing 'firstName' field or incorrect data type`);
     }
     if (lastName === undefined || typeof lastName !== "string") {
-      return res
-        .status(400)
-        .json({ error: "Missing `lastName` field or incorrect data type" });
+      return send(res).badRequest(`Missing 'lastName' field or incorrect data type`);
     }
     const newTechnician = await db.technicians.create({
       data: {
@@ -34,11 +31,9 @@ router.post("/", async (req, res) => {
         lastName,
       },
     });
-    res.status(201).json(newTechnician);
+    send(res).createOk(newTechnician);
   } catch (e) {
-    res
-      .status(500)
-      .json({ error: "Couldn't create new technician. Try again later..." });
+    send(res).internalError(`Couldn't create new technician. Try again later...` );
   }
 });
 
@@ -48,12 +43,12 @@ router.get("/:id", async (req, res) => {
     const technician = await db.technicians.findUniqueOrThrow({
       where: { techId: Number(id) },
     });
-    res.status(200).json(technician);
+    send(res).ok(technician);
   } catch (e: any) {
     if (e.name === "NotFoundError") {
-      return res.status(404).json({ message: `Not found` });
+      return send(res).notFound();
     }
-    res.status(500).json({ e });
+    send(res).internalError(`Internal error`);
   }
 });
 
