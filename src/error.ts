@@ -2,17 +2,7 @@ import type { ErrorRequestHandler, RequestHandler } from "express";
 import { send } from "./response";
 import type { ZodError } from "zod";
 
-/* 
- return send(res).badRequest(`Missing 'lastName' field or incorrect data type`);
- send(res).internalError(`Could not get technicians`);
- send(res).internalError(`Couldn't create new technician. Try again later...`);
 
- if (e.name === "NotFoundError") {
-      return send(res).notFound();
-    }
-    send(res).internalError(`Internal error`);
-    
- */
 const zodErrorMessage = (err: ZodError) => {
   const [firstIssue] = err.issues;
   const { path, message } = firstIssue;
@@ -33,6 +23,9 @@ export const defaultErrorHandler: ErrorRequestHandler = (
     }
     case "NotFoundError": {
       return send(res).notFound();
+    }
+    case "PrismaClientKnownRequestError": {
+        return send(res).badRequest(`Error: May be you asked for something that doesn't exist.`)
     }
     default: {
       return send(res).internalError(`Internal error.`);
