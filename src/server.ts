@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use("/technicians", techniciansRouter);
 
-app.use(defaultErrorHandler);
+app.use(defaultErrorHandler); //Este middleware captura next(e)
 
 const { PORT } = process.env;
 app.listen(PORT, () => {

@@ -27,10 +27,10 @@ router.get("/", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     const technicianData = technicianBodySchema.parse(req.body);
-    const newTechnician = await db.technicians.create({data:technicianData});
+    const newTechnician = await db.technicians.create({ data: technicianData });
     send(res).createOk(newTechnician);
   } catch (e) {
-    next(e);  
+    next(e);
   }
 });
 
@@ -42,22 +42,31 @@ router.get("/:id", async (req, res, next) => {
     });
     send(res).ok(technician);
   } catch (e) {
-    next(e)
+    next(e);
   }
 });
 
 router.put("/:id", async (req, res, next) => {
   try {
-    const { id: techId } = idParamSchema.parse(req.param);
+    const { id: techId } = idParamSchema.parse(req.params);
     const newTechnicianData = technicianBodySchema.parse(req.body);
-
     const updateTechnician = await db.technicians.update({
       where: { techId },
       data: newTechnicianData,
     });
     send(res).ok(updateTechnician);
   } catch (e) {
-    next(e)
+    next(e);
+  }
+});
+
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const { id: techId } = idParamSchema.parse(req.params);
+    const deleteTechnician = await db.technicians.delete({ where: { techId } });
+    send(res).ok(deleteTechnician);
+  } catch (e) {
+    next(e);
   }
 });
 

@@ -15,7 +15,7 @@ export const send = (res: ExpressResponse) => {
     createOk: (data: any) => res.status(HttpStatusCode.Created).json(data),
     internalError: (msg: string) =>
       res.status(HttpStatusCode.InternalServerError).send(msg),
-    notFound: () => res.status(HttpStatusCode.NotFound).send(`Not found`),
+    notFound: () => res.status(HttpStatusCode.NotFound).send(`Not found.`),
     badRequest: (msg: string) =>
       res.status(HttpStatusCode.BadRequest).send(msg),
     notImplemented: ()=> res.status(HttpStatusCode.NotImplemented).send(`Not implemented.`),
