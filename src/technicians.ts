@@ -2,6 +2,7 @@ import { db } from "./db";
 import { Router } from "express";
 import { send } from "./response";
 import { z } from "zod";
+import { catchErrors } from "./error";
 
 const router = Router();
 
@@ -13,41 +14,39 @@ const technicianBodySchema = z.object({
   lastName: z.string().min(5).max(20),
 });
 
-router.get("/", async (req, res, next) => {
-  try {
+router.get(
+  "/",
+  catchErrors(async (req, res, next) => {
     const technicians = await db.technicians.findMany({
       orderBy: { firstName: "asc" },
     });
     send(res).ok(technicians);
-  } catch (e) {
-    next(e);
-  }
-});
+  })
+);
 
-router.post("/", async (req, res, next) => {
-  try {
+router.post(
+  "/",
+  catchErrors(async (req, res, next) => {
     const technicianData = technicianBodySchema.parse(req.body);
     const newTechnician = await db.technicians.create({ data: technicianData });
     send(res).createOk(newTechnician);
-  } catch (e) {
-    next(e);
-  }
-});
+  })
+);
 
-router.get("/:id", async (req, res, next) => {
-  try {
+router.get(
+  "/:id",
+  catchErrors(async (req, res, next) => {
     const { id: techId } = idParamSchema.parse(req.params);
     const technician = await db.technicians.findUniqueOrThrow({
       where: { techId },
     });
     send(res).ok(technician);
-  } catch (e) {
-    next(e);
-  }
-});
+  })
+);
 
-router.put("/:id", async (req, res, next) => {
-  try {
+router.put(
+  "/:id",
+  catchErrors(async (req, res, next) => {
     const { id: techId } = idParamSchema.parse(req.params);
     const newTechnicianData = technicianBodySchema.parse(req.body);
     const updateTechnician = await db.technicians.update({
@@ -55,19 +54,16 @@ router.put("/:id", async (req, res, next) => {
       data: newTechnicianData,
     });
     send(res).ok(updateTechnician);
-  } catch (e) {
-    next(e);
-  }
-});
+  })
+);
 
-router.delete("/:id", async (req, res, next) => {
-  try {
+router.delete(
+  "/:id",
+  catchErrors(async (req, res) => {
     const { id: techId } = idParamSchema.parse(req.params);
     const deleteTechnician = await db.technicians.delete({ where: { techId } });
     send(res).ok(deleteTechnician);
-  } catch (e) {
-    next(e);
-  }
-});
+  })
+);
 
 export default router;
