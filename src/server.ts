@@ -3,6 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 import techniciansRouter from './technicians';
 import laboratoriesRouter from './laboratories';
+import projectsRouter from './projects';
 import { defaultErrorHandler } from "./error";
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.json());
 
 app.use("/technicians", techniciansRouter);
 app.use("/laboratories", laboratoriesRouter);
+app.use("/projects", projectsRouter);
 
 app.use(defaultErrorHandler); //Este middleware captura next(e)
 

@@ -16,7 +16,7 @@ export const defaultErrorHandler: ErrorRequestHandler = (
   next
 ) => {
   console.log(`My console.log with the error:${err.name}`);
-  //console.log(err);
+  console.log(err);
   switch (err.name) {
     case "ZodError": {
       return send(res).badRequest(zodErrorMessage(err));
@@ -25,7 +25,7 @@ export const defaultErrorHandler: ErrorRequestHandler = (
       return send(res).notFound();
     }
     case "PrismaClientKnownRequestError": {
-        return send(res).badRequest(`Error: May be you asked for something that doesn't exist.`)
+        return send(res).badRequest(`Error: May be you asked for something that doesn't exist or you tried to create new entity with used name`)
     }
     default: {
       return send(res).internalError(`Internal error.`);
