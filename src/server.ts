@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import techniciansRouter from './technicians';
+import laboratoriesRouter from './laboratories';
 import { defaultErrorHandler } from "./error";
 
 const app = express();
@@ -11,6 +12,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.use("/technicians", techniciansRouter);
+app.use("/laboratories", laboratoriesRouter);
 
 app.use(defaultErrorHandler); //Este middleware captura next(e)
 

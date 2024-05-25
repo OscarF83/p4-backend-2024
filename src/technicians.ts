@@ -16,7 +16,7 @@ const technicianBodySchema = z.object({
 
 router.get(
   "/",
-  catchErrors(async (req, res, next) => {
+  catchErrors(async (req, res) => {
     const technicians = await db.technicians.findMany({
       orderBy: { firstName: "asc" },
     });
@@ -26,7 +26,7 @@ router.get(
 
 router.post(
   "/",
-  catchErrors(async (req, res, next) => {
+  catchErrors(async (req, res) => {
     const technicianData = technicianBodySchema.parse(req.body);
     const newTechnician = await db.technicians.create({ data: technicianData });
     send(res).createOk(newTechnician);
@@ -35,7 +35,7 @@ router.post(
 
 router.get(
   "/:id",
-  catchErrors(async (req, res, next) => {
+  catchErrors(async (req, res) => {
     const { id: techId } = idParamSchema.parse(req.params);
     const technician = await db.technicians.findUniqueOrThrow({
       where: { techId },
@@ -46,7 +46,7 @@ router.get(
 
 router.put(
   "/:id",
-  catchErrors(async (req, res, next) => {
+  catchErrors(async (req, res) => {
     const { id: techId } = idParamSchema.parse(req.params);
     const newTechnicianData = technicianBodySchema.parse(req.body);
     const updateTechnician = await db.technicians.update({
