@@ -81,42 +81,42 @@ try {
 
   const registers = [
     {
-      day: "03-05-2024",
+      day: "2024-05-03",
       hours: 8,
       techId: 1,
       labId: 1,
       projectId: 1,
     },
     {
-      day: "03-05-2024",
+      day: "2024-05-03",
       hours: 6,
       techId: 2,
       labId: 2,
       projectId: 2,
     },
     {
-      day: "03-05-2024",
+      day: "2024-05-03",
       hours: 6,
       techId: 3,
       labId: 2,
       projectId: 2,
     },
     {
-      day: "03-05-2024",
+      day: "2024-05-03",
       hours: 8,
       techId: 4,
       labId: 3,
       projectId: 3,
     },
     {
-      day: "04-05-2024",
+      day: "2024-05-04",
       hours: 8,
       techId: 3,
       labId: 2,
       projectId: 2,
     },
     {
-      day: "04-05-2024",
+      day: "2024-05-04",
       hours: 5,
       techId: 4,
       labId: 3,
