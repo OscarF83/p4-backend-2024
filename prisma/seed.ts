@@ -2,158 +2,147 @@ import { PrismaClient } from "@prisma/client";
 
 const db = new PrismaClient();
 
-/*const labNames2 = ["lab1", "lab2", "lab3"];
-
-labNames2.forEach(async (value)=>{
-    const laboratory1 = await db.laboratories.create({
-        data: {
-          labName: value,
-        },
-      });
-})*/
-
 try {
+  
+  // Laboratories
 
-const laboratory1 = await db.laboratories.create({
-    data: {
-      labName: "EmcChamberLab",
-    },
+  const labNames = ["EmcChamberLab", "SoftwareControlLab", "Calorimeter"];
+
+  const promises = labNames.map(async (value: string) => {
+    const laboratory = await db.laboratories.create({
+      data: {
+        labName: value,
+      },
+    });
   });
-console.log(`Created laboratory "${laboratory1.labName}" with id "${laboratory1.labId}"`);
+  const newLaboratories = await Promise.allSettled(promises);
 
-const laboratory2 = await db.laboratories.create({
-    data: {
-      labName: "SoftwareControlLab",
-    },
+  labNames.map((value: string, index: number) => {
+    console.log(`Created laboratory "${value}" with id "${index + 1}"`);
   });
-console.log(`Created laboratory "${laboratory2.labName}" with id "${laboratory2.labId}"`);
 
-const laboratory3 = await db.laboratories.create({
-    data: {
-      labName: "Calorimeter",
-    },
+  // Projects
+
+  const projectNames = ["IU_Yutaki", "ODU_R290", "ODU_R32"];
+
+  const promises2 = projectNames.map(async (value: string) => {
+    const project = await db.projects.create({
+      data: {
+        projectName: value,
+      },
+    });
   });
-console.log(`Created laboratory "${laboratory3.labName}" with id "${laboratory3.labId}"`);
+  const newProjects = await Promise.allSettled(promises2);
 
-const project1 = await db.projects.create({
-    data: {
-      projectName: "IU_Yutaki",
-    },
+  projectNames.map((value: string, index: number) => {
+    console.log(`Created project "${value}" with id "${index + 1}"`);
   });
-console.log(`Created project "${project1.projectName}" with id "${project1.projectId}"`);
 
-const project2 = await db.projects.create({
-    data: {
-      projectName: "ODU_R290",
+  // Technicians
+
+  const techniciansNames = [
+    {
+      firstName: "Juan",
+      lastName: "Alcaraz",
     },
-  });
-console.log(`Created project "${project2.projectName}" with id "${project2.projectId}"`);
-
-const project3 = await db.projects.create({
-    data: {
-      projectName: "ODU_R32",
+    {
+      firstName: "Carlos",
+      lastName: "Monte",
     },
+    {
+      firstName: "Antonio",
+      lastName: "Molina",
+    },
+    {
+      firstName: "Cristina",
+      lastName: "Gonzalez",
+    },
+  ];
+
+  const promises3 = techniciansNames.map(async (value) => {
+    const technician = await db.technicians.create({
+      data: {
+        firstName: value.firstName,
+        lastName: value.lastName,
+      },
+    });
   });
-console.log(`Created project "${project3.projectName}" with id "${project3.projectId}"`);
+  const newTechnicians = await Promise.allSettled(promises3);
 
-const technician1 = await db.technicians.create({
-  data: {
-    firstName: "Juan",
-    lastName: "Alcaraz",
-  },
-});
-console.log(`Created technician "${technician1.firstName} ${technician1.lastName}" with id "${technician1.techId}"`);
+  techniciansNames.map((value, index: number) => {
+    console.log(
+      `Created technician "${value.firstName}" "${value.lastName}" with id "${
+        index + 1
+      }"`
+    );
+  });
 
-const technician2 = await db.technicians.create({
-  data: {
-    firstName: "Carlos",
-    lastName: "Monte",
-  },
-});
-console.log(`Created technician "${technician2.firstName} ${technician2.lastName}" with id "${technician2.techId}"`);
+  // Registers
 
-const technician3 = await db.technicians.create({
-  data: {
-    firstName: "Antonio",
-    lastName: "Molina",
-  },
-});
-console.log(`Created technician "${technician3.firstName} ${technician3.lastName}" with id "${technician3.techId}"`);
-
-const technician4 = await db.technicians.create({
-  data: {
-    firstName: "Cristina",
-    lastName: "Gonzalez",
-  },
-});
-console.log(`Created technician "${technician4.firstName} ${technician4.lastName}" with id "${technician4.techId}"`);
-
-const register1 = await db.hoursRegister.create({
-    data: {
+  const registers = [
+    {
       day: "03-05-2024",
       hours: 8,
-      techId: technician1.techId,
-      labId: laboratory1.labId,
-      projectId: project1.projectId,
+      techId: 1,
+      labId: 1,
+      projectId: 1,
     },
-  });
-console.log(`Created register with id "${register1.hoursRegisterId}"`);
-
-const register2 = await db.hoursRegister.create({
-    data: {
+    {
       day: "03-05-2024",
       hours: 6,
-      techId: technician2.techId,
-      labId: laboratory2.labId,
-      projectId: project2.projectId,
+      techId: 2,
+      labId: 2,
+      projectId: 2,
     },
-  });
-console.log(`Created register with id "${register2.hoursRegisterId}"`);
-
-const register3 = await db.hoursRegister.create({
-    data: {
+    {
       day: "03-05-2024",
       hours: 6,
-      techId: technician3.techId,
-      labId: laboratory2.labId,
-      projectId: project2.projectId,
+      techId: 3,
+      labId: 2,
+      projectId: 2,
     },
-  });
-console.log(`Created register with id "${register3.hoursRegisterId}"`);
-
-const register4 = await db.hoursRegister.create({
-    data: {
+    {
       day: "03-05-2024",
       hours: 8,
-      techId: technician4.techId,
-      labId: laboratory3.labId,
-      projectId: project3.projectId,
+      techId: 4,
+      labId: 3,
+      projectId: 3,
     },
-  });
-console.log(`Created register with id "${register4.hoursRegisterId}"`);
-
-const register5 = await db.hoursRegister.create({
-    data: {
+    {
       day: "04-05-2024",
       hours: 8,
-      techId: technician3.techId,
-      labId: laboratory2.labId,
-      projectId: project2.projectId,
+      techId: 3,
+      labId: 2,
+      projectId: 2,
     },
-  });
-console.log(`Created register with id "${register5.hoursRegisterId}"`);
-
-const register6 = await db.hoursRegister.create({
-    data: {
+    {
       day: "04-05-2024",
       hours: 5,
-      techId: technician4.techId,
-      labId: laboratory3.labId,
-      projectId: project3.projectId,
+      techId: 4,
+      labId: 3,
+      projectId: 3,
     },
+  ];
+
+  const promises4 = registers.map(async (value) => {
+    const register = await db.hoursRegister.create({
+      data: {
+        day: value.day,
+        hours: value.hours,
+        techId: value.techId,
+        labId: value.labId,
+        projectId: value.projectId,
+      },
+    });
   });
-console.log(`Created register with id "${register6.hoursRegisterId}"`);
+  const newRegisters = await Promise.allSettled(promises4);
+
+  registers.map((_value, index: number) => {
+    console.log(`Created register with id "${index + 1}"`);
+  });
 } catch (e) {
-  console.error(`Error: Database. Remember that seed.ts only can be executed one time.`);
+  console.error(
+    `Error: Database. Remember that seed.ts only can be executed one time.`
+  );
   process.exit(1);
 }
