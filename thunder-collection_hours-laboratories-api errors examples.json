@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "hours-laboratories-api errors examples",
     "collectionId": "62070b80-4c85-48be-9720-b6efd4424cf0",
-    "dateExported": "2024-06-01T10:02:45.595Z",
+    "dateExported": "2024-06-01T10:25:49.616Z",
     "version": "1.2",
     "folders": [],
     "requests": [
@@ -108,11 +108,11 @@
             "colId": "62070b80-4c85-48be-9720-b6efd4424cf0",
             "containerId": "",
             "name": "Delete register by non-existent id",
-            "url": "/technicians/99",
+            "url": "/registers/99",
             "method": "DELETE",
             "sortNum": 95000,
             "created": "2024-06-01T08:27:17.709Z",
-            "modified": "2024-06-01T08:39:15.230Z",
+            "modified": "2024-06-01T10:18:10.472Z",
             "headers": []
         }
     ],
@@ -121,5 +121,5 @@
             "baseUrl": "http://localhost:8888"
         }
     },
-    "ref": "QmlD8J_8-y0zVDXhPy74xfnB7F0wMMAv_ppXZTQr7jxEDWKwufLYvpOcayslzxb0pbkStAzc7bprN2jsFwOttQ"
+    "ref": "QmlD8J_8-y0zVDXhPy74xfnB7F0wMMAv_ppXZTQr7jwxJIkKcB_LRFnAvNJfWge2cG_DG3aXoF5Y4i3qaLSAAQ"
 }

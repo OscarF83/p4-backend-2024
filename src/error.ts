@@ -15,8 +15,8 @@ export const defaultErrorHandler: ErrorRequestHandler = (
   res,
   next
 ) => {
-  console.log(`My console.log with the error:${err.name}`);
-  console.log(err);
+  //console.log(`My console.log with the error:${err.name}`);
+  //console.log(err);
   switch (err.name) {
     case "ZodError": {
       return send(res).badRequest(zodErrorMessage(err));

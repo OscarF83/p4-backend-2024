@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "hours-laboratories-api",
     "collectionId": "597840d4-7548-4358-9c94-6949824eb5f0",
-    "dateExported": "2024-06-01T10:02:18.015Z",
+    "dateExported": "2024-06-01T10:25:22.778Z",
     "version": "1.2",
     "folders": [],
     "requests": [
@@ -128,11 +128,11 @@
             "method": "POST",
             "sortNum": 40000,
             "created": "2024-05-24T16:56:11.195Z",
-            "modified": "2024-05-25T08:42:24.794Z",
+            "modified": "2024-06-01T10:14:48.948Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"firstName\": \"Oscarrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr\",\n  \"lastName\": \"Fonte\"\n}",
+                "raw": "{\n  \"firstName\": \"Oscar\",\n  \"lastName\": \"Fonte\"\n}",
                 "form": []
             }
         },
@@ -175,11 +175,11 @@
             "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
             "containerId": "",
             "name": "Update register",
-            "url": "/registers/7",
+            "url": "/registers/1",
             "method": "PUT",
             "sortNum": 57500,
             "created": "2024-06-01T08:10:46.808Z",
-            "modified": "2024-06-01T08:12:24.923Z",
+            "modified": "2024-06-01T10:19:11.476Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -256,5 +256,5 @@
             "baseUrl": "http://localhost:8888"
         }
     },
-    "ref": "bklLdPfvTPFe7eTJVDUlh3rNQxls0T6aK_DxdiPBxsVdjX5sVQvR-atJAdduyS4e5d-sw6rGvCEsPm5deNE0RQ"
+    "ref": "bklLdPfvTPFe7eTJVDUlh3rNQxls0T6aK_DxdiPBxsWHX04w3Nb_hmas7MVvX577U4RjGsbUYvuLd9_X3y-oIQ"
 }

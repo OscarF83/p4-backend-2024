@@ -93,4 +93,9 @@ Se ha creado los diferentes métodos Delete:
 
 ## Entregable
 
-**Consultar fichero Thunder Client**
+Se han añadido al git del proyecto los dos ficheros .json del thunder client. Estos ficheros incluyen consultas de cada end point creado.
+
+thunder-collection_hours-laboratories-api errors examples.json -> Consultas de end point que provocan errores de ejemplo.
+
+thunder-collection_hours-laboratories-api.json -> Consultas de cada end point para validar su correcto funcionamiento.
+
