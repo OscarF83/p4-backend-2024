@@ -1,18 +1,96 @@
-# Backend en Typescript, Express y Prisma
+# Entidades
 
-Se trata de hacer un _backend_ usando Typescript, Express y Prisma. El _backend_ implementado en clase es el modelo a seguir. Para alumnos que lo hacen por primera vez y sienten algo de incomodidad, lo ideal es usar el modelo de guía y hacer un _backend_ cercano al original de tal manera que la práctica sea un repaso a fondo. Para los que estén más cómodos, lo ideal es innovar en algun aspecto y salirse parcialmente del modelo en ciertos momentos o explorar algún interés personal. El modelo de datos es directamente la práctica anterior.
+Se han creado 4 entidades
 
-Al usar Prisma, es quizás buena idea explorar proveedores de Prisma que no sean precisamente Postgres, ya que el coste de hacerlo es mínimo (aunque esto no es obligatorio para nada). Aparte de los proveedores locales alternativos a Postgres, existen también opciones en la nube equivalentes a Postgres como [PlanetScale](https://www.prisma.io/docs/guides/database/planetscale), [CockroachDB](https://www.prisma.io/docs/guides/database/cockroachdb) o [Supabase](https://www.prisma.io/docs/guides/database/supabase), bien explicadas en la documentación de Prisma.
+Entidad technicians
+    -techId
+    -firstName
+    -lastName
+
+Entidad laboratories
+    -labId
+    -labName
+
+Entidad projects
+    -projectId
+    -projectName
+
+Entidad hoursRegister
+    -hoursRegisterId
+    -day
+    -techId
+    -labId
+    -projectId
+
+** Relación Many to Many donde la tabla hoursRegister hace de enlace con el resto de entidades technicians, laboratories y projects.
+
+
+## Inicialización del sistema
+
+Ejecutar los siguientes comandos:
+
+bun install
+bunx prisma db push
+
+
+## Rellenado de datos de prueba
+
+Ejecutar el siguiente comando:
+
+bun prisma/seed.ts
+
+o también:
+
+bunx prisma db seed
+
+
+## End points GET
+
+Se ha creado los diferentes métodos GET:
+
+- Get All registers -> GET http://localhost:8888/registers -> devuelve todos los registros de la entidad hoursRegister.
+- Get register by id -> GET http://localhost:8888/registers/:id -> devuelve el registro del hoursRegisterId indicado.
+- Get All technicians -> GET http://localhost:8888/technicians -> devuelve todos los registros de la entidad technicians.
+- Get technician by id -> GET http://localhost:8888/technicians/:id -> devuelve el technician del techId indicado.
+- Get All laboratories -> GET http://localhost:8888/laboratories -> devuelve todos los registros de la entidad laboraotires.
+- Get laboratory by id -> GET http://localhost:8888/laboratories/:id -> devuelve el laboratory del labId indicado.
+- Get All projects -> GET http://localhost:8888/projects -> devuelve todos los registros de la entidad projects.
+- Get laboratory by id -> GET http://localhost:8888/projects/:id -> devuelve el project del projectId indicado.
+
+
+## End points POST
+
+Se ha creado los diferentes métodos Post:
+
+- POST Add new register -> POST http://localhost:8888/registers -> Añade un nuevo registro a la entidad hoursRegister.
+- POST Add new technician -> POST http://localhost:8888/technicians -> Añade un nuevo technician a la entidad technicians.
+- POST Add new laboratory -> POST http://localhost:8888/laboratories -> Añade un nuevo laboratory a la entidad laboraotires.
+- POST Add new project -> POST http://localhost:8888/projects -> Añade un nuevo project a la entidad projects.
+
+
+## End points PUT
+
+Se ha creado los diferentes métodos PUT:
+
+- Update register -> PUT http://localhost:8888/registers/:id -> Se actualiza el registro de la entidad hoursRegister del id indicado.
+- Update technician -> PUT http://localhost:8888/technicians/:id -> Se actualiza el technician a la entidad technicians del id indicado.
+- Update laboratory -> PUT http://localhost:8888/laboratories/:id -> Se actualiza el laboratory a la entidad laboraotires del id indicado.
+- Update project -> PUT http://localhost:8888/projects/:id -> Se actualiza el project a la entidad projects del id indicado.
+
+
+## End points DELETE
+
+Se ha creado los diferentes métodos Delete:
+
+- Delete register -> DELETE http://localhost:8888/registers/:id -> Se elimina el registro de la entidad hoursRegister del id indicado.
+
+- Delete technician -> Se deja comentado en el código. Se decide no utilizarlo puesto que el schema de la base de datos no permite borrar o elimninar un technician que forme parte ya de un registro de la entidad hoursRegister. En caso de querer cambiar el nombre del technician se puede realizar un PUT (Update).
+
+- Delete laboratory -> Se deja comentado en el código. Se decide no utilizarlo puesto que el schema de la base de datos no permite borrar o elimninar un laboratory que forme parte ya de un registro de la entidad hoursRegister. En caso de querer cambiar el nombre del laboratory se puede realizar un PUT (Update).
+
+- Delete project -> Se deja comentado en el código. Se decide no utilizarlo puesto que el schema de la base de datos no permite borrar o elimninar un project que forme parte ya de un registro de la entidad hoursRegister. En caso de querer cambiar el nombre del project se puede realizar un PUT (Update).
+
 
 ## Entregable
 
-Como anteriormente, para hacer esta práctica hay que:
-- Hacer un _fork_ de este repositorio.
-- Trabajar en el _fork_ haciendo commits regularmente (una práctica que aparece entera en un solo commit tendrá una nota muy baja o cero, hay que mostrar todo el proceso intermedio).
-- Al finalizar, se debe crear un `ZIP` del repositorio (que incluya el fichero `.env`!) y entregarlo en el [Campus Online de UPC School](https://talent.upc.edu) (habrá una tarea preparada para ello).
-
-El entregable es el código del proyecto, incluyendo:
-- `docker-compose.yml` si la base de datos corre bajo Docker.
-- El código completo del servidor.
-- Un fichero exportado de [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) con la lista de _endpoints_ que se han probado. (Esto es **extremadamente** relevante porque la corrección del backend, de no tener este fichero, es un trabajo muchísimo más tedioso!).
-- Si se necesitan credenciales para acceder a servicios de cloud (o incluso localmente), es importante incluir en el ZIP del campus el fichero `.env` con éstas. Es muy importante no subir ese fichero en GitHub (es decir, incluirlo en `.gitignore`).
+**Consultar fichero Thunder Client**

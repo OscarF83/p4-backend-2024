@@ -1,0 +1,125 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "hours-laboratories-api errors examples",
+    "collectionId": "62070b80-4c85-48be-9720-b6efd4424cf0",
+    "dateExported": "2024-06-01T10:02:45.595Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "88c57cde-9813-47a3-92e5-0fbadbdb5584",
+            "colId": "62070b80-4c85-48be-9720-b6efd4424cf0",
+            "containerId": "",
+            "name": "Get technician by non-existent id",
+            "url": "/technicians/4444",
+            "method": "GET",
+            "sortNum": 35000,
+            "created": "2024-06-01T08:27:17.695Z",
+            "modified": "2024-06-01T08:27:17.695Z",
+            "headers": []
+        },
+        {
+            "_id": "557c7b8e-2a54-4329-bbc0-699b26bb248f",
+            "colId": "62070b80-4c85-48be-9720-b6efd4424cf0",
+            "containerId": "",
+            "name": "Add new technician with name too long",
+            "url": "/technicians",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-06-01T08:27:17.700Z",
+            "modified": "2024-06-01T09:05:17.134Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"firstName\": \"Oscarrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr\",\n  \"lastName\": \"Fonte\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "1c7f338e-133f-415b-bde7-1c763ea78634",
+            "colId": "62070b80-4c85-48be-9720-b6efd4424cf0",
+            "containerId": "",
+            "name": "Add new laboratory with wrong type data",
+            "url": "/laboratories",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-06-01T08:27:17.701Z",
+            "modified": "2024-06-01T08:34:19.378Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"labName\": 1\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "0044d15c-5c59-467b-a2e8-73ca7e062047",
+            "colId": "62070b80-4c85-48be-9720-b6efd4424cf0",
+            "containerId": "",
+            "name": "Add new register with invalid date format",
+            "url": "/registers",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-06-01T08:27:17.702Z",
+            "modified": "2024-06-01T08:37:21.666Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"day\": \"24-05-01\",\n    \"hours\": 6,\n    \"techId\": 3,\n    \"labId\": 2,\n    \"projectId\": 2\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "469cd831-0180-4fd5-bb06-8d69a4b6045b",
+            "colId": "62070b80-4c85-48be-9720-b6efd4424cf0",
+            "containerId": "",
+            "name": "Add new technician with name too short",
+            "url": "/technicians",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-06-01T08:33:19.491Z",
+            "modified": "2024-06-01T09:05:03.400Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"firstName\": \"Oscar\",\n  \"lastName\": \"F\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "de2d19f6-e7f7-41b8-8274-5e9c0e6d04e2",
+            "colId": "62070b80-4c85-48be-9720-b6efd4424cf0",
+            "containerId": "",
+            "name": "Add new project with used name",
+            "url": "/projects",
+            "method": "POST",
+            "sortNum": 55000,
+            "created": "2024-06-01T08:27:17.703Z",
+            "modified": "2024-06-01T08:42:46.390Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"projectName\": \"IU_Yutaki\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "8493f766-132c-4c63-b863-e451b74ba6ce",
+            "colId": "62070b80-4c85-48be-9720-b6efd4424cf0",
+            "containerId": "",
+            "name": "Delete register by non-existent id",
+            "url": "/technicians/99",
+            "method": "DELETE",
+            "sortNum": 95000,
+            "created": "2024-06-01T08:27:17.709Z",
+            "modified": "2024-06-01T08:39:15.230Z",
+            "headers": []
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "http://localhost:8888"
+        }
+    },
+    "ref": "QmlD8J_8-y0zVDXhPy74xfnB7F0wMMAv_ppXZTQr7jxEDWKwufLYvpOcayslzxb0pbkStAzc7bprN2jsFwOttQ"
+}

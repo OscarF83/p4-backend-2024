@@ -56,13 +56,17 @@ router.put(
   })
 );
 
-router.delete(
+// Delete laboratory -> Se deja comentado en el código. Se decide no utilizarlo puesto que el schema
+// de la base de datos no permite borrar o elimninar un laboratory que forme parte ya de un registro
+// de la entidad hoursRegister. En caso de querer cambiar el nombre del laboratory se puede realizar un PUT (Update).
+
+/*router.delete(
   "/:id",
   catchErrors(async (req, res) => {
     const { id: labId } = idParamSchema.parse(req.params);
     const deleteLaboratory = await db.laboratories.delete({ where: { labId } });
     send(res).ok(deleteLaboratory);
   })
-);
+);*/
 
 export default router;

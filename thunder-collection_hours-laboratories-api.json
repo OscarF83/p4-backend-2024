@@ -1,0 +1,260 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "hours-laboratories-api",
+    "collectionId": "597840d4-7548-4358-9c94-6949824eb5f0",
+    "dateExported": "2024-06-01T10:02:18.015Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "dd3523c1-662f-4305-b41f-9f0444d62b83",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Get All registers",
+            "url": "/registers",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2024-06-01T08:03:50.858Z",
+            "modified": "2024-06-01T08:04:30.784Z",
+            "headers": []
+        },
+        {
+            "_id": "2443f43d-0aea-4935-9f45-155de4fdebc4",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Get register by id",
+            "url": "/registers/1",
+            "method": "GET",
+            "sortNum": 22500,
+            "created": "2024-06-01T08:05:18.537Z",
+            "modified": "2024-06-01T08:06:06.866Z",
+            "headers": []
+        },
+        {
+            "_id": "0fdecb32-4bec-46f8-a8e2-22174e6e035e",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Get All technicians",
+            "url": "/technicians",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-05-24T15:42:28.804Z",
+            "modified": "2024-05-24T15:42:50.201Z",
+            "headers": []
+        },
+        {
+            "_id": "90cc9ddf-40ac-434e-9e0e-486055524c52",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Get technician by id",
+            "url": "/technicians/2",
+            "method": "GET",
+            "sortNum": 35000,
+            "created": "2024-05-24T17:25:50.282Z",
+            "modified": "2024-06-01T08:44:32.584Z",
+            "headers": []
+        },
+        {
+            "_id": "d2fd4f3e-f822-484e-994f-f2de4e5ee095",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Get All laboratories",
+            "url": "/laboratories",
+            "method": "GET",
+            "sortNum": 37500,
+            "created": "2024-05-25T09:28:53.654Z",
+            "modified": "2024-05-25T09:29:30.994Z",
+            "headers": []
+        },
+        {
+            "_id": "7d99cca8-41ef-4804-950b-3594b3282196",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Get laboratory by id",
+            "url": "/laboratories/3",
+            "method": "GET",
+            "sortNum": 38750,
+            "created": "2024-05-25T09:30:19.090Z",
+            "modified": "2024-05-25T09:30:49.956Z",
+            "headers": []
+        },
+        {
+            "_id": "78fdb41d-7ba2-41d7-aa07-3fcd3cee7b7b",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Get All projects",
+            "url": "/projects",
+            "method": "GET",
+            "sortNum": 39375,
+            "created": "2024-05-25T09:50:01.487Z",
+            "modified": "2024-05-25T09:50:55.292Z",
+            "headers": []
+        },
+        {
+            "_id": "6228bb9f-eaa8-4e17-b6e1-837eda61b941",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Get project by id",
+            "url": "/projects/1",
+            "method": "GET",
+            "sortNum": 39687.5,
+            "created": "2024-05-25T09:51:30.443Z",
+            "modified": "2024-05-25T09:51:53.072Z",
+            "headers": []
+        },
+        {
+            "_id": "d7c01679-7357-4d90-84ff-eed17c240fe5",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Add new register",
+            "url": "/registers",
+            "method": "POST",
+            "sortNum": 39843.8,
+            "created": "2024-06-01T08:07:10.577Z",
+            "modified": "2024-06-01T08:24:27.738Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"day\": \"2024-05-01\",\n    \"hours\": 6,\n    \"techId\": 3,\n    \"labId\": 2,\n    \"projectId\": 2\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "b027833c-8c43-4fa7-bc1d-dbada5fff018",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Add new technician",
+            "url": "/technicians",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-05-24T16:56:11.195Z",
+            "modified": "2024-05-25T08:42:24.794Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"firstName\": \"Oscarrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr\",\n  \"lastName\": \"Fonte\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "0bfb4277-afb1-4e4d-8191-26e968060091",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Add new laboratory",
+            "url": "/laboratories",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-05-25T09:32:01.093Z",
+            "modified": "2024-06-01T08:45:14.751Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"labName\": \"newLab1\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "f1d62ba7-a39a-422d-a351-63658c12a204",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Add new project",
+            "url": "/projects",
+            "method": "POST",
+            "sortNum": 55000,
+            "created": "2024-05-25T09:52:22.358Z",
+            "modified": "2024-06-01T08:45:24.255Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"projectName\": \"newProject1\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "ff444fee-b650-492c-b1e5-782ad9cb6d61",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Update register",
+            "url": "/registers/7",
+            "method": "PUT",
+            "sortNum": 57500,
+            "created": "2024-06-01T08:10:46.808Z",
+            "modified": "2024-06-01T08:12:24.923Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"day\": \"2025-05-01\",\n    \"hours\": 8,\n    \"techId\": 3,\n    \"labId\": 2,\n    \"projectId\": 2\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "1fc3c8f4-162d-4a64-9e7e-080cff7b9788",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Update technician",
+            "url": "/technicians/1",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-05-25T06:40:56.761Z",
+            "modified": "2024-06-01T08:45:54.833Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"firstName\": \"Oscar\",\n  \"lastName\": \"Fonte\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "fe0e6760-b7a6-4170-b789-7d91cb552f2d",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Update laboratory",
+            "url": "/laboratories/2",
+            "method": "PUT",
+            "sortNum": 65000,
+            "created": "2024-05-25T09:34:46.024Z",
+            "modified": "2024-06-01T08:47:11.878Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"labName\": \"newNameLab\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "38a26658-046d-443a-9492-d0dc5a5a8390",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Update project",
+            "url": "/projects/1",
+            "method": "PUT",
+            "sortNum": 67500,
+            "created": "2024-05-25T09:58:36.253Z",
+            "modified": "2024-05-25T10:00:49.480Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"projectName\": \"newProjectName\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "c5291411-3ebf-4a3c-b461-ef0d3e0f8eb6",
+            "colId": "597840d4-7548-4358-9c94-6949824eb5f0",
+            "containerId": "",
+            "name": "Delete register by id",
+            "url": "/registers/1",
+            "method": "DELETE",
+            "sortNum": 68750,
+            "created": "2024-05-25T10:01:17.260Z",
+            "modified": "2024-06-01T09:03:22.732Z",
+            "headers": []
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "http://localhost:8888"
+        }
+    },
+    "ref": "bklLdPfvTPFe7eTJVDUlh3rNQxls0T6aK_DxdiPBxsVdjX5sVQvR-atJAdduyS4e5d-sw6rGvCEsPm5deNE0RQ"
+}

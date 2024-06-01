@@ -56,13 +56,17 @@ router.put(
   })
 );
 
-router.delete(
+// Delete project -> Se deja comentado en el código. Se decide no utilizarlo puesto que el schema
+// de la base de datos no permite borrar o elimninar un project que forme parte ya de un registro
+// de la entidad hoursRegister. En caso de querer cambiar el nombre del project se puede realizar un PUT (Update).
+
+/*router.delete(
   "/:id",
   catchErrors(async (req, res) => {
     const { id: projectId } = idParamSchema.parse(req.params);
     const deleteProject = await db.projects.delete({ where: { projectId } });
     send(res).ok(deleteProject);
   })
-);
+);*/
 
 export default router;

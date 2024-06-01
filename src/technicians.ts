@@ -57,13 +57,17 @@ router.put(
   })
 );
 
-router.delete(
+// Delete technician -> Se deja comentado en el código. Se decide no utilizarlo puesto que el schema 
+// de la base de datos no permite borrar o elimninar un technician que forme parte ya de un registro 
+// de la entidad hoursRegister. En caso de querer cambiar el nombre del technician se puede realizar un PUT (Update).
+
+/*router.delete(
   "/:id",
   catchErrors(async (req, res) => {
     const { id: techId } = idParamSchema.parse(req.params);
     const deleteTechnician = await db.technicians.delete({ where: { techId } });
     send(res).ok(deleteTechnician);
   })
-);
+);*/
 
 export default router;
